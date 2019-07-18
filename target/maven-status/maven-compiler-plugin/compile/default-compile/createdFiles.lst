@@ -1,0 +1,7 @@
+me/kisoft/docmaker/strategy/ArabicLanguageClassDocmakerStrategy.class
+me/kisoft/docmaker/ArabicLanguageClassDocmaker.class
+me/kisoft/docmaker/strategy/LanguageClassDocmakerStrategy.class
+me/kisoft/docmaker/strategy/ClassDocmakerStrategy.class
+me/kisoft/docmaker/ClassDocmaker.class
+me/kisoft/docmaker/strategy/IndexDocmakerStrategy.class
+me/kisoft/docmaker/strategy/ArabicLanguageIndexDocmakerStrategy.class
