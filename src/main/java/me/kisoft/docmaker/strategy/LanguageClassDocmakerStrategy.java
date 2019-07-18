@@ -47,7 +47,7 @@ public abstract class LanguageClassDocmakerStrategy implements ClassDocmakerStra
       }
       return true;
     } else
-      return true;
+      return false;
   }
 
 }
