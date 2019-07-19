@@ -5,19 +5,33 @@
  */
 package me.kisoft.docmaker.strategy;
 
+import com.sun.javadoc.Tag;
+import org.commonmark.node.Node;
+
 /**
  *
  * @author tareq
  */
-public class ArabicLanguageClassDocmakerStrategy extends LanguageClassDocmakerStrategy {
+public class EnglishClassDocmakerStrategy extends LanguageDocmakerClassStrategy {
 
   @Override
   public String getTagName() {
-    return "doc.ar";
+    return "doc.en";
   }
 
   @Override
   public String getFolderName() {
-    return "ar";
+    return "en";
   }
+
+  @Override
+  public Tag preprocessTag(Tag tag) {
+    return tag;
+  }
+
+  @Override
+  public Node postprocessHtml(Node document) {
+    return document;
+  }
+
 }

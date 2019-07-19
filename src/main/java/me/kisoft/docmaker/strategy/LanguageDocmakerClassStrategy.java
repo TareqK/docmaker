@@ -16,9 +16,9 @@ import org.commonmark.node.*;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 
-public abstract class LanguageClassDocmakerStrategy implements ClassDocmakerStrategy {
+public abstract class LanguageDocmakerClassStrategy implements ClassDocmakerStrategy {
 
-  private static final Logger LOG = Logger.getLogger(LanguageClassDocmakerStrategy.class.getName());
+  private static final Logger LOG = Logger.getLogger(LanguageDocmakerClassStrategy.class.getName());
 
   @Override
   public String processClassName(ClassDoc classdoc) {
@@ -33,9 +33,9 @@ public abstract class LanguageClassDocmakerStrategy implements ClassDocmakerStra
         LOG.log(Level.SEVERE, "Please only use one single {0} tag", getTagName());
         return false;
       }
-      String tagText = tags[0].text();
+      String tagText = preprocessTag(tags[0]).text();
       Parser parser = Parser.builder().build();
-      Node document = parser.parse(tagText);
+      Node document = postprocessHtml(parser.parse(tagText));
       HtmlRenderer renderer = HtmlRenderer.builder().build();
       String html = renderer.render(document);
       File f = new File(getFolderName() + "/" + processClassName(classdoc));
@@ -46,8 +46,9 @@ public abstract class LanguageClassDocmakerStrategy implements ClassDocmakerStra
         LOG.severe(ex.getMessage());
       }
       return true;
-    } else
+    } else {
       return false;
+    }
   }
 
 }
